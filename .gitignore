@@ -1,0 +1,22 @@
+# Maven build output
+target/
+*.class
+
+# IDE files
+.idea/
+*.iml
+.eclipse/
+.settings/
+.classpath
+.project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test artifacts (generated, not source)
+allure-results/
+screenshots/
+
+# Sensitive config — never commit real credentials
+# config.properties is safe here as it uses public demo site

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--
+  testng.xml - TestNG suite configuration
+
+  Key settings for SDET showcase:
+  - parallel="methods" + thread-count="3": runs tests in parallel (requires ThreadLocal in DriverManager)
+  - groups: shows understanding of test categorisation
+  - listeners: Allure TestNG listener for automatic report generation
+-->
+
+<suite name="Automation Suite" parallel="methods" thread-count="3" verbose="1">
+
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <!-- Smoke suite: quick sanity check on core flows -->
+    <test name="Smoke Tests" group-by-instances="true">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automationframework.tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <!-- Regression suite: full test coverage -->
+    <test name="Regression Tests" group-by-instances="true">
+        <classes>
+            <class name="com.automationframework.tests.LoginTest"/>
+        </classes>
+    </test>
+
+</suite>
